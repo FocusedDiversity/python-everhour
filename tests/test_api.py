@@ -1,17 +1,20 @@
-import pytest
-from datetime import datetime, timedelta
-from python_everhour.api import EverhourAPI
 import os
+from datetime import datetime, timedelta
+
+import pytest
+
+from python_everhour.api import EverhourAPI
 
 
 @pytest.fixture(scope="module")
 def vcr_config():
     return {"filter_headers": ["X-Api-Key"]}
 
+
 @pytest.fixture
 def api_key():
     """Fixture to provide a mock API key."""
-    return os.environ['EVERHOUR_API_KEY']
+    return os.environ["EVERHOUR_API_KEY"]
 
 
 @pytest.fixture
@@ -26,6 +29,7 @@ def test_get_time_entries(everhour_api):
     end_date = datetime.today()
     response = everhour_api.get_time_entries(start_date, end_date)
     assert response == "mock_time_entries_data"
+
 
 @pytest.mark.vcr
 def test_get_users(everhour_api):
