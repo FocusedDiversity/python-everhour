@@ -1,28 +1,22 @@
-import string
-from secrets import token_hex
+import logging
+import random
+from datetime import datetime
 
 import requests
-import logging
-from datetime import datetime
-from os import environ
-import random
 
 log = logging.getLogger(__name__)
 
-class EverhourAPI:
-    base_url = 'https://api.everhour.com'
-    api_key: str
 
+class EverhourAPI:
+    base_url = "https://api.everhour.com"
+    api_key: str
 
     def __init__(self, api_key: str):
         self.api_key = api_key
 
     @property
     def _header(self):
-        return {
-            'Content-Type': 'application/json',
-            'X-Api-Key': self.api_key
-        }
+        return {"Content-Type": "application/json", "X-Api-Key": self.api_key}
 
     @staticmethod
     def _obfuscate_api_key(secret):
@@ -31,14 +25,12 @@ class EverhourAPI:
 
         obfuscated_secret = list(secret)
         for i in mask_indices:
-            obfuscated_secret[i] = '*'
+            obfuscated_secret[i] = "*"
 
         return "".join(obfuscated_secret)
 
     def _get_mask_replacements(self):
-        return {
-            self.api_key: EverhourAPI._obfuscate_api_key(self.api_key)
-        }
+        return {self.api_key: EverhourAPI._obfuscate_api_key(self.api_key)}
 
     @property
     def _obfuscated_headers(self):
@@ -64,19 +56,26 @@ class EverhourAPI:
             return response.text
         except requests.exceptions.RequestException as e:
             # Log any exceptions
-            log.exception(f"API call to {url} with {self._obfuscated_headers} failed:", exc_info=e)
+            log.exception(
+                f"API call to {url} with {self._obfuscated_headers} failed:", exc_info=e
+            )
             raise e
 
-    def get_time_entries(self, start_date:datetime, end_date: datetime):
-        return self.query_everhour('/team/time?from=' + start_date.strftime('%Y-%m-%d') + '&to=' + end_date.strftime('%Y-%m-%d'))
+    def get_time_entries(self, start_date: datetime, end_date: datetime):
+        return self.query_everhour(
+            "/team/time?from="
+            + start_date.strftime("%Y-%m-%d")
+            + "&to="
+            + end_date.strftime("%Y-%m-%d")
+        )
 
     def get_projects(self):
-        return self.query_everhour('/projects')
+        return self.query_everhour("/projects")
 
     def get_users(self):
-        #load up all users frm everhour
-        return self.query_everhour('/team/users')
+        # load up all users frm everhour
+        return self.query_everhour("/team/users")
 
     def get_schedule_assignments(self):
-        #load up schedule assignments from everhour
-        return self.query_everhour('/resource-planner/assignments')
+        # load up schedule assignments from everhour
+        return self.query_everhour("/resource-planner/assignments")
