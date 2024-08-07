@@ -1,11 +1,8 @@
-import string
-from secrets import token_hex
+import logging
+import random
+from datetime import datetime
 
 import requests
-import logging
-from datetime import datetime
-from os import environ
-import random
 
 log = logging.getLogger(__name__)
 
