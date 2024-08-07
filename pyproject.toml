@@ -1,13 +1,18 @@
 [tool.poetry]
-name = "python-everhour"
+name = "python_everhour"
 version = "0.1.0"
 description = ""
 authors = ["Erik LaBianca <erik.labianca@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10.12"
+python = "3.10.12"
+requests = "2.28.1"
 
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.2"
+pytest-recording = "^0.13.2"
 
 [build-system]
 requires = ["poetry-core"]
