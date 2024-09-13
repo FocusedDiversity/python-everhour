@@ -51,5 +51,5 @@ def load_config(env: str) -> DotDict:
     return config
 
 
-env = os.environ.get("ENV", "prod").lower()
+env = os.environ.get("ENV", "test").lower()
 config = load_config(env)

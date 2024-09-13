@@ -75,6 +75,10 @@ class EverhourAPI:
     def get_users(self):
         # load up all users frm everhour
         return self.query_everhour("/team/users")
+    
+    def get_user(self):
+        # load up all users frm everhour
+        return self.query_everhour("/users/me")
 
     def get_schedule_assignments(self):
         # load up schedule assignments from everhour
