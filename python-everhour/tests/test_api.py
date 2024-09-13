@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 import pytest
 
 from python_everhour.api import EverhourAPI
-
+from python_everhour import config
 
 @pytest.fixture(scope="module")
 def vcr_config():
@@ -14,7 +14,7 @@ def vcr_config():
 @pytest.fixture
 def api_key():
     """Fixture to provide a mock API key."""
-    return os.environ["EVERHOUR_API_KEY"]
+    return config.everhour.api_key 
 
 
 @pytest.fixture

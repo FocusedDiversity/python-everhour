@@ -1,14 +1,14 @@
 import logging
 import random
 from datetime import datetime
-
+from python_everhour import config
 import requests
 
 log = logging.getLogger(__name__)
 
 
 class EverhourAPI:
-    base_url = "https://api.everhour.com"
+    base_url =  config.everhour.base_url
     api_key: str
 
     def __init__(self, api_key: str):
