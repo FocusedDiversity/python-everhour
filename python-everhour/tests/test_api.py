@@ -50,5 +50,6 @@ def test_get_time_entries(everhour_api):
 @pytest.mark.vcr
 def test_get_users(everhour_api):
     response = everhour_api.get_users()
-    assert response is not None
-    assert response == ""
+    response_json = json.loads(response)
+    assert len(response_json) != 0
+    assert response_json[0]['role'] == "admin"
