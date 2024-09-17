@@ -1,1 +1,0 @@
-[Everhour API mock data](https://everhour.docs.apiary.io/#reference/0/expenses/get-current-user?console=1)
