@@ -1,7 +1,7 @@
 import logging
 import random
 from datetime import datetime
-from python_everhour import config
+from src.python_everhour import config
 import requests
 
 log = logging.getLogger(__name__)
