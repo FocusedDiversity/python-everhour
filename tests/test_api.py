@@ -2,8 +2,8 @@ from datetime import datetime, timedelta
 import json
 import pytest
 
-from src.python_everhour.api import EverhourAPI
-from src.python_everhour import config
+from python_everhour.api import EverhourAPI
+from python_everhour import config
 
 @pytest.fixture(scope="module")
 def vcr_config():
