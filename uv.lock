@@ -303,6 +303,7 @@ name = "python-everhour"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "pyyaml" },
     { name = "requests" },
 ]
 
@@ -315,7 +316,10 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "requests", specifier = ">=2.32.3" }]
+requires-dist = [
+    { name = "pyyaml", specifier = ">=6.0.2" },
+    { name = "requests", specifier = ">=2.32.3" },
+]
 
 [package.metadata.requires-dev]
 dev = [
