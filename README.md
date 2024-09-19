@@ -1,11 +1,5 @@
-# EverhourAPI Library Features
-This library provides a simple interface to interact with the Everhour API. Below are the key features:
-- Get Time Entries: Fetches time entries for a specific date range using `get_time_entries(start_date, end_date)`. The dates must be provided as datetime objects.
-- Get Projects: Retrieves a list of all projects from Everhour using `get_projects()`.
-- Get Users: Returns a list of all team members with `get_users()`.
-- Get Current User: Fetches details of the authenticated user using `get_user()`.
-- Get Schedule Assignments: Retrieves schedule assignments from the Everhour Resource Planner using `get_schedule_assignments()`.
-
+# EverhourAPI Library 
+This library provides a simple interface to interact with the Everhour API.
 
 ## Databricks runtime information
 - This is a library to connect with everhour from python (using spark). 
