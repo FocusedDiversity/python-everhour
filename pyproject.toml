@@ -1,21 +1,22 @@
-[tool.poetry]
-name = "python_everhour"
-version = "0.1.0"
-description = ""
-authors = ["Erik LaBianca <erik.labianca@gmail.com>"]
+[project]
+name = "python-everhour"
+version = "0.1.1"
+description = "Add your description here"
 readme = "README.md"
-
-[tool.poetry.dependencies]
-python = "3.10.12"
-requests = "2.28.1"
-
-
-[tool.poetry.group.dev.dependencies]
-pytest = "^8.3.2"
-pytest-recording = "^0.13.2"
-isort = "^5.13.2"
-black = "^24.8.0"
+requires-python = ">=3.10"
+dependencies = [
+    "pyyaml>=6.0.2",
+    "requests>=2.32.3",
+]
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "black>=24.8.0",
+    "isort>=5.13.2",
+    "pytest>=8.3.3",
+    "pytest-recording>=0.13.2",
+]
